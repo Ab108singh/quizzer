@@ -69,7 +69,7 @@ const CreateQuizPage = () => {
       questions
     };
 
-    axios.post("http://localhost:5000/api/quizzes", quizData)
+    axios.post("https://quizzer-api.onrender.com/api/quizzes", quizData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };

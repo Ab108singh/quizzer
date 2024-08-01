@@ -10,7 +10,7 @@ const QuizPage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/quizzes/${id}`)
+    axios.get(`https://quizzer-api.onrender.com/api/quizzes/${id}`)
       .then(response => {
         setQuiz(response.data);
         setLoading(false);
