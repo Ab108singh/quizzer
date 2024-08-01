@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../UserContext';
 // import quizImage from '../assets/images/quiz.svg'; // Replace with an actual image path
 
 const Home = () => {
+
+  const {user,setUser} =useContext(UserContext);
+
   return (
     <div className="container mx-auto p-4 text-center">
       <div className="bg-blue-100 p-8 rounded-lg shadow-lg">
@@ -15,9 +19,11 @@ const Home = () => {
           <Link to="/quiz" className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-700">
             Start a Quiz
           </Link>
-          <Link to="/create" className="bg-green-500 text-white py-2 px-6 rounded-lg shadow hover:bg-green-700">
+          {
+            user&&user.role=="admin"&&<Link to="/create" className="bg-green-500 text-white py-2 px-6 rounded-lg shadow hover:bg-green-700">
             Create a Quiz
           </Link>
+          }
         </div>
       </div>
       <div className="mt-12">

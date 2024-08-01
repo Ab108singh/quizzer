@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+import UserContext from '../UserContext';
 
 function QuizList() {
   const [quizzes, setQuizzes] = useState([]);
-
+  const {user} =useContext(UserContext);
   useEffect(() => {
     axios.get('https://quizzer-api.onrender.com/api/quizzes')
       .then(response => {
@@ -27,7 +28,7 @@ function QuizList() {
           >
             <div>
               <Link 
-                to={`/quiz/${quiz._id}`} 
+                to={!user?"/login":`/quiz/${quiz._id}`} 
                 className="text-blue-800 text-3xl font-semibold hover:underline"
               >
                 {quiz.title}
