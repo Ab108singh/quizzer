@@ -8,7 +8,7 @@ function QuizList() {
   const [quizzes, setQuizzes] = useState([]);
   const {user} =useContext(UserContext);
   useEffect(() => {
-    axios.get('https://quizzer-api.onrender.com/api/quizzes')
+    axios.get('http://localhost:5000/api/quizzes')
       .then(response => {
         setQuizzes(response.data);
       })

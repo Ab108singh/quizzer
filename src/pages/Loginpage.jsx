@@ -29,7 +29,7 @@ const LoginPage = () => {
 
     const loginData = { email, password };
 
-    axios.post('https://quizzer-api.onrender.com/api/users/login', loginData)
+    axios.post('http://localhost:5000/api/users/login', loginData)
       .then((res) =>{ 
         setUser(res.data.user);
         localStorage.setItem("quiz_token",res.data.token);

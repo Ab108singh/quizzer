@@ -33,7 +33,7 @@ const RegisterPage = () => {
 
     const registerData = { email, password };
 
-    axios.post('https://quizzer-api.onrender.com/api/users/register', registerData)
+    axios.post('http://localhost:5000/api/users/register', registerData)
       .then((res) => {
         console.log(res)
         navigate("/login")

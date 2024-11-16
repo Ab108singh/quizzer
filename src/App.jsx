@@ -18,7 +18,7 @@ function App() {
   useEffect(()=>{
     let token = localStorage.getItem("quiz_token");
 
-    axios.get("https://quizzer-api.onrender.com/api/users/varify",{headers:{Token:token}})
+    axios.get("http://localhost:5000/api/users/varify",{headers:{Token:token}})
     .then((res)=>{
       setUser(res.data.user)
     })
